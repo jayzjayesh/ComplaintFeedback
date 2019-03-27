@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>New Request</h1>
+    <h4> Please type the type of Request - Complaint/Feedback</h4>
+
+
+
+    <form method="POST" class="post-form">
+    <label for="username" style=" margin-bottom:20px ">Name:</label>
+    <input type="username" name="username"  value="            {{ user.username }}" readonly>
+    {{ form.color }}
+
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+    <script>var editor = new MediumEditor('.editable');</script>
+
+{% endblock %}

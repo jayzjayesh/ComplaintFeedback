@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="centerstage">
+
+
+    {% for post in post_list %}
+        <div class="post">
+
+            <h1 style="background-color:#F8F8FF ; border-radius:15px ; text-shadow:2px ; width: 600px"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <div class="date" style="background-color: beige ; border-radius:20px; width:400px;">
+                <p>Published on: {{ post.published_date|date:"D M Y"}}</p>
+                <p> Type : {{  post.typez }} </p>
+                <p> Category: {{ post.favorite_fruit }} </p>
+            </div>
+            <div style="background-color:#F8F8FF ; width: 200px ; border-radius:20px">
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
+
+        </div>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}

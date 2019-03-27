@@ -1,0 +1,31 @@
+{% extends 	"blog/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<div class="jumbotron" style="margin-top: 20px">
+ {% if registered %}
+ <h1> Thankyou for registering</h1>
+ <h2> Please Login! </h2>
+
+ {% else %}
+  <h1> Register here!</h1>
+  <h3>Fill out the details:</h3>
+  
+  <form method="post" enctype="multipart/form-data" id="form1" class="form form-horizontal bg-faded">
+    <div class="form-group">
+
+  	{% csrf_token %}
+    
+  	{{ user_form.as_p }}
+
+  	<input type="submit" name="" value="Register" width="10">
+  	</div>
+  </form>
+
+  {% endif %}
+
+</div>
+
+{% endblock %}
